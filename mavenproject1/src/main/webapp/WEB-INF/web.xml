@@ -32,7 +32,7 @@
     <!-- Configurações do tema do PrimeFaces -->
     <context-param>  
         <param-name>primefaces.THEME</param-name>  
-        <param-value>sam</param-value>  
+        <param-value>south-street</param-value>  
     </context-param>         
     
     <!-- Filtros do Spring  -->
