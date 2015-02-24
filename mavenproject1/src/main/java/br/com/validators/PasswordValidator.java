@@ -1,4 +1,3 @@
-
 package br.com.validators;
 
 import javax.faces.application.FacesMessage;
