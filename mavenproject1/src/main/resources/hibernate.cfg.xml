@@ -38,5 +38,6 @@
         <mapping class="br.com.model.entities.Sexo"/>
         <mapping class="br.com.model.entities.TipoEndereco"/>
         <mapping class="br.com.model.entities.TipoLogradouro"/>
+         <mapping class="br.com.model.entities.Conta"/>
     </session-factory>
 </hibernate-configuration>

@@ -17,7 +17,6 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import br.com.model.entities.Usuario;
 
 @Entity
 @Table(name = "conta_bancaria")

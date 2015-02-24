@@ -25,6 +25,7 @@ public class MbPessoa implements Serializable {
     private Endereco endereco = new Endereco();
     private List<Pessoa> pessoas;
     private List<Endereco> enderecos;
+    private String conta;
 
     public MbPessoa() {
     }
@@ -47,6 +48,9 @@ public class MbPessoa implements Serializable {
 
     public String editPessoa() {
         return "/restrict/cadastrarpessoa.faces";
+    }
+    public String cadConta(){
+        return "/restrict/cadastrarcontas.faces";
     }
 
     public String addPessoa() {
