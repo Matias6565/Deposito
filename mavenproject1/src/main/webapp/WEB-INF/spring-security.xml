@@ -17,10 +17,10 @@
         <access-denied-handler error-page="/acessonegado.faces" />
     </http>                
 
-  
+    <!-- NO PROJETO SEMERU PADRÃO FIZEMOS DESSA FORMA -->  
     <authentication-manager>
         <authentication-provider>
-            <password-encoder hash="sha1"/>
+            <password-encoder hash="sha"/>
             <jdbc-user-service data-source-ref="dataSource"
                                users-by-username-query="SELECT Login, Senha, 'true' as enable FROM pessoa WHERE Login=?"
                                authorities-by-username-query="SELECT Login as username, Permissao as authority  FROM pessoa WHERE Login=?"/>               
@@ -34,9 +34,9 @@
         <b:property name="password" value="221461" />
     </b:bean>
     
-<!--     MAS EXISTEM OUTRAS 2 FORMAS DE SE FAZER ISSO 
-     VOCÊ PODE CUSTOMIZAR A AUTENTICATION PROVIDER -->
-<!--        <b:bean id="customAuthenticationProvider" class="br.com.semeru.security.CustomAuthenticationProvider"></b:bean> 
+    <!-- MAS EXISTEM OUTRAS 2 FORMAS DE SE FAZER ISSO -->
+    <!-- VOCÊ PODE CUSTOMIZAR A AUTENTICATION PROVIDER -->
+    <!--    <b:bean id="customAuthenticationProvider" class="br.com.semeru.security.CustomAuthenticationProvider"></b:bean> 
     <authentication-manager> 
         <authentication-provider ref="customAuthenticationProvider"/> 
     </authentication-manager>     -->
