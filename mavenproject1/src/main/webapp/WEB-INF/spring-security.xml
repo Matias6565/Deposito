@@ -16,8 +16,7 @@
                     default-target-url="/restrict/home.faces"/>		
         <access-denied-handler error-page="/acessonegado.faces" />
     </http>                
-
-    <!-- NO PROJETO SEMERU PADRÃO FIZEMOS DESSA FORMA -->  
+   
     <authentication-manager>
         <authentication-provider>
             <password-encoder hash="sha"/>
