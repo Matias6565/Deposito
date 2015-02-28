@@ -12,10 +12,11 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.bean.RequestScoped;
 
 
-@ManagedBean
-@SessionScoped
+@ManagedBean (name = "mbConta")
+@RequestScoped
 public class MbConta implements Serializable {
     private static final long serialVersionUID = 1L;
     private Pessoa pessoa = new Pessoa();

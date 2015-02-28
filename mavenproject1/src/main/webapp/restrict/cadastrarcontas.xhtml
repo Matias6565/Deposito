@@ -12,13 +12,13 @@
         <p:fieldset legend="Cadastro de Gastos">
             <br/>
             <p:tabView id="tbv1" dynamic="true" cache="true">
-                <p:tab title="Recursos">
-                    <h:form prependId="false" id="formGastos">
+                <p:tab title="Contas">
+                    <h:form prependId="false" id="formConta">
                         <p:growl id="msg0"/>
                         <h:panelGrid columns="2" cellpadding="10" styleClass="panelGrid" id="grid0">
                             
                             <h:outputLabel/>
-                            <h:inputHidden id="idGastos" value="#{mbConta}"/> 
+                            <h:inputHidden id="idGastos" value="#{mbConta.conta.idGastos}"/> 
                             
                             <h:outputLabel for="nomeconta" value="Nome.:"/>
                             <p:inputText id="conta" size="40" value="#{mbConta}"

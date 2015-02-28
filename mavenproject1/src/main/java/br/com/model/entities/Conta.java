@@ -7,22 +7,21 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import org.hibernate.annotations.ForeignKey;
 import static org.hibernate.type.TypeFactory.serializable;
 
-
-
+@Entity
+@Table(name="conta")
 public class Conta implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
     @Id
     @GeneratedValue
-    @Column(name="Gastos", nullable=false)
+    @Column(name="IdGastos", nullable=false)
     private Integer idGastos;
     @Column(name="conta", length=8)
     private double conta;
