@@ -32,7 +32,6 @@ public class MbConta implements Serializable {
         return contaDAO;
     }
     
-     
       public String deleteConta() {
         contaDAO().remove(conta);
         FacesContext.getCurrentInstance().addMessage(null,
@@ -40,7 +39,7 @@ public class MbConta implements Serializable {
         return null;
     }   
       
-          public String limpConta() {
+       public String limpConta() {
         conta = new Conta();
        return "/restrict/cadastrarcontas.faces";
           }

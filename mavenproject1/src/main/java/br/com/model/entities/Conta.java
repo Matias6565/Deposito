@@ -7,6 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -32,10 +33,10 @@ public class Conta implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataDeCadastro;
 
-    @OneToOne(optional=true, fetch= FetchType.LAZY)
-    @ForeignKey(name="Pessoa")
-    @JoinColumn(name = "IdPessoa", referencedColumnName = "IdPessoa")
-    private Pessoa pessoa;
+    @ManyToOne(optional=false)
+    @ForeignKey(name = "PessoaNome") 
+    @JoinColumn(name="IdPessoa", referencedColumnName = "idPessoa")
+    private Pessoa nome;
 
     public Conta() {
     }
