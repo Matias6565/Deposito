@@ -20,20 +20,27 @@
                             <h:outputLabel/>
                             <h:inputHidden id="idgastos" value="#{mbConta.conta.idGastos}"/> 
                             
-                            <h:outputLabel for="nomeconta" value="Nome.:"/>
+                              <h:outputLabel for="nomePessoa" value="Pessoa relacionada.:"/>
+                              <p:selectOneMenu id="nomePessoa" value="#{mbPessoa.pessoa.idPessoa}">
+                                  <f:selectItems value="#{bbPessoa.pessoa}" var="nomePessoa" itemValue="#{nomePessoa.idPessoa}" itemLabel="#{nomePessoa.nome}"/>
+                                </p:selectOneMenu>
+                            
+                            <h:outputLabel for="nomeconta" value="Custo com.:"/>
                             <p:inputText id="conta" size="20" value="#{mbConta.conta.observacao}"
                                 onkeyup="this.value = this.value.toUpperCase()" required="true"
                                 requiredMessage="O campo [Nome] é obrigatório."/>
+                            
                             <h:outputLabel for="quantia" value="Valor.:"/>
                             <p:inputText id="val" size="15" value="#{mbConta.conta.conta}"
-                                onkeyup="this.value = this.value.toUpperCase()" required="true"
-                                requiredMessage="O campo [Nome] é obrigatório."/>
+                               required="true" requiredMessage="O campo [Nome] é obrigatório."/>
                             
                             <p:panel>
-                                <p:commandButton value="Salvar" action="#{mbConta.salvarConta(conta)}"
+                                <p:commandButton value="Salvar" action="#{mbConta.addConta}"
                                     image="ui-icon ui-icon-disk" update="@form :formtable"/>
-                                <p:commandButton value="Deletar" actionListener="#{mbConta}" 
+                                <p:commandButton value="Deletar" actionListener="#{mbConta.deleteConta}" 
                                     image="ui-icon ui-icon-close" update="@form"/>
+                               
+                                
                             </p:panel>
                         </h:panelGrid>
                     </h:form>

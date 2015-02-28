@@ -38,7 +38,6 @@ public class Conta implements Serializable {
     private Pessoa pessoa;
 
     public Conta() {
-                this.pessoa = new Pessoa();
     }
 
     public Date getDataDeCadastro() {

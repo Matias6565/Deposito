@@ -10,7 +10,6 @@ import java.util.Date;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.bean.RequestScoped;
 
@@ -22,7 +21,9 @@ public class MbConta implements Serializable {
     
     private Conta conta = new Conta();
     private List<Conta> contas;
-
+    private Pessoa pessoa = new Pessoa();
+    private List<Pessoa> pessoas;
+    
     public MbConta() {
     }
     
@@ -37,18 +38,36 @@ public class MbConta implements Serializable {
         FacesContext.getCurrentInstance().addMessage(null,
                 new FacesMessage(FacesMessage.SEVERITY_INFO, "Registro excluído com sucesso", ""));
         return null;
+    }   
+      
+          public String limpConta() {
+        conta = new Conta();
+       return "/restrict/cadastrarcontas.faces";
+          }
+      
+      public String addConta() {
+        if (conta.getIdGastos() == null || conta.getIdGastos() == 0) {
+            insertConta();
+        } else {
+            updateConta();
+        }
+        limpConta();
+        return null;
     }
       
-      public void salvarConta(Conta conta){
-          conta.setDataDeCadastro(new Date());
-          this.contaDAO().save(conta);
-      }
-      private void insertConta() {
-        contaDAO().save(conta);
+       private void updateConta() {
+        contaDAO().update(conta);
         FacesContext.getCurrentInstance().addMessage(null,
-                new FacesMessage(FacesMessage.SEVERITY_INFO, "Gravação efetuada com sucesso", ""));
+                new FacesMessage(FacesMessage.SEVERITY_INFO, "Atualização efetuada com sucesso", ""));
     }
 
+       private void insertConta() {       
+            contaDAO().save(conta);
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage(FacesMessage.SEVERITY_INFO, "Gravação efetuada com sucesso", ""));
+        }
+    
+    
     public Conta getConta() {
         return conta;
     }
