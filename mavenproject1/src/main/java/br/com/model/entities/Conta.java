@@ -66,6 +66,15 @@ public class Conta implements Serializable {
         this.conta = conta;
     }
 
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
+    }
+    
+
     @Override
     public int hashCode() {
         int hash = 7;

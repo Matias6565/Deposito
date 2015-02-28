@@ -21,7 +21,7 @@
                             <h:inputHidden id="idgastos" value="#{mbConta.conta.idGastos}"/> 
                             
                             <h:outputLabel for="nomeconta" value="Nome.:"/>
-                            <p:inputText id="conta" size="40" value="#{mbConta.conta}"
+                            <p:inputText id="conta" size="20" value="#{mbConta.conta.observacao}"
                                 onkeyup="this.value = this.value.toUpperCase()" required="true"
                                 requiredMessage="O campo [Nome] é obrigatório."/>
                             <h:outputLabel for="quantia" value="Valor.:"/>
