@@ -8,27 +8,27 @@
                 xmlns:p="http://primefaces.org/ui"
                 template="./../resources/main.xhtml">
 
-    <ui:define name="tarefas">
-        <p:fieldset legend="Cadastro de Cidades">
+    <ui:define name="Relatório">
+        <p:fieldset legend="Cadastro de Gastos">
             <br/>
             <p:tabView id="tbv1" dynamic="true" cache="true">
-                <p:tab title="Cidade">
-                    <h:form prependId="false" id="formCidade">
+                <p:tab title="Recursos">
+                    <h:form prependId="false" id="formGastos">
                         <p:growl id="msg0"/>
                         <h:panelGrid columns="2" cellpadding="10" styleClass="panelGrid" id="grid0">
                             
                             <h:outputLabel/>
-                            <h:inputHidden id="idcidade" value="#{mbPessoa}"/> 
+                            <h:inputHidden id="idGastos" value="#{mbConta}"/> 
                             
-                            <h:outputLabel for="nomecidade" value="Nome.:"/>
-                            <p:inputText id="nomecidade" size="40" value="#{mbPessoa}"
+                            <h:outputLabel for="nomeconta" value="Nome.:"/>
+                            <p:inputText id="conta" size="40" value="#{mbConta}"
                                 onkeyup="this.value = this.value.toUpperCase()" required="true"
                                 requiredMessage="O campo [Nome] é obrigatório."/>
                             
                             <p:panel>
-                                <p:commandButton value="Salvar" action="#{mbPessoa.addPessoa}"
+                                <p:commandButton value="Salvar" action="#{mbConta.salvarConta(conta)}"
                                     image="ui-icon ui-icon-disk" update="@form :formtable"/>
-                                <p:commandButton value="Cancelar" actionListener="#{mbPessoa}" 
+                                <p:commandButton value="Deletar" actionListener="#{mbConta}" 
                                     image="ui-icon ui-icon-close" update="@form"/>
                             </p:panel>
                         </h:panelGrid>
@@ -38,37 +38,20 @@
             
             <h:form id="formtable">
                 <p:growl id="msg1"/>
-                <p:dataTable id="idTabela" var="cidade" value="#{mbCidade.cidades}"
-                             paginator="true" rows="10" emptyMessage="Nenhum registro encontrado"
+                <p:dataTable id="idTabela" var="pessoa" value="#{mbPessoa.pessoas}"
+                             paginator="true" rows="5" emptyMessage="Nenhum registro encontrado"
                              paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink}
                              {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                             rowsPerPageTemplate="5,10,15,20">
+                             rowsPerPageTemplate="5,10,15,20,25">
                 
-                    <f:facet name="header">Lista de Cidades</f:facet>
+                    <f:facet name="header">Lista de Gastos</f:facet>
                     <p:column>
                         <f:facet name="header">
                             <h:outputText value="Nome"/>
                         </f:facet>
-                        <h:outputText value="#{cidade.nome}"/>
+                        <h:outputText value="#{conta.nome}"/>
                     </p:column>
-                    
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="Ações"/>
-                        </f:facet>
-                        <p:commandButton value="Editar" image="ui-icon ui-icon-pencil"
-                                process="@this" update=":tbv1:formCidade">
-                            <f:setPropertyActionListener target="#{mbCidade.cidade}"
-                                value="#{cidade}"/>
-                        </p:commandButton>
-                        <p:commandButton value="Remover" action="#{mbCidade.deleteCidade}"
-                                image="ui-icon ui-icon-close" update="@form">
-                            <f:setPropertyActionListener target="#{mbCidade.cidade}"
-                                value="#{cidade}"/>
-                        </p:commandButton>
-                        
-                    </p:column>
-                    
+                                        
                 </p:dataTable>
                 
             </h:form>
