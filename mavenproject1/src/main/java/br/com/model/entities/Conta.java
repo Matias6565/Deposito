@@ -23,6 +23,9 @@ public class Conta implements Serializable {
     @GeneratedValue
     @Column(name="IdGastos", nullable=false)
     private Integer idGastos;
+    
+    @Column(name="Observacao", nullable=false, length = 40)
+    private String observacao;
     @Column(name="conta", length=8)
     private double conta;
     @Column (name="DataDeCadastro", nullable = false)

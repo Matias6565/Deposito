@@ -8,7 +8,7 @@
                 xmlns:p="http://primefaces.org/ui"
                 template="./../resources/main.xhtml">
 
-    <ui:define name="Relatório">
+    <ui:define name="tarefas">
         <p:fieldset legend="Cadastro de Gastos">
             <br/>
             <p:tabView id="tbv1" dynamic="true" cache="true">
@@ -18,10 +18,14 @@
                         <h:panelGrid columns="2" cellpadding="10" styleClass="panelGrid" id="grid0">
                             
                             <h:outputLabel/>
-                            <h:inputHidden id="idGastos" value="#{mbConta.conta.idGastos}"/> 
+                            <h:inputHidden id="idgastos" value="#{mbConta.conta.idGastos}"/> 
                             
                             <h:outputLabel for="nomeconta" value="Nome.:"/>
-                            <p:inputText id="conta" size="40" value="#{mbConta}"
+                            <p:inputText id="conta" size="40" value="#{mbConta.conta}"
+                                onkeyup="this.value = this.value.toUpperCase()" required="true"
+                                requiredMessage="O campo [Nome] é obrigatório."/>
+                            <h:outputLabel for="quantia" value="Valor.:"/>
+                            <p:inputText id="val" size="15" value="#{mbConta.conta.conta}"
                                 onkeyup="this.value = this.value.toUpperCase()" required="true"
                                 requiredMessage="O campo [Nome] é obrigatório."/>
                             

@@ -19,8 +19,7 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class MbConta implements Serializable {
     private static final long serialVersionUID = 1L;
-    private Pessoa pessoa = new Pessoa();
-    private List<Pessoa> pessoas;
+    
     private Conta conta = new Conta();
     private List<Conta> contas;
 
@@ -32,10 +31,6 @@ public class MbConta implements Serializable {
         return contaDAO;
     }
     
-      private InterfaceDAO<Pessoa> pessoaDAO() {
-        InterfaceDAO<Pessoa> pessoaDAO = new HibernateDAO<Pessoa>(Pessoa.class, FacesContextUtil.getRequestSession());
-        return pessoaDAO;
-    }
      
       public String deleteConta() {
         contaDAO().remove(conta);
@@ -53,4 +48,21 @@ public class MbConta implements Serializable {
         FacesContext.getCurrentInstance().addMessage(null,
                 new FacesMessage(FacesMessage.SEVERITY_INFO, "Gravação efetuada com sucesso", ""));
     }
+
+    public Conta getConta() {
+        return conta;
+    }
+
+    public void setConta(Conta conta) {
+        this.conta = conta;
+    }
+
+    public List<Conta> getContas() {
+        return contas;
+    }
+
+    public void setContas(List<Conta> contas) {
+        this.contas = contas;
+    }
+      
 }
