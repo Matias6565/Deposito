@@ -14,7 +14,7 @@
  
     <p:fieldset legend="Info.Basica" style="margin-bottom:20px">
         <h:panelGrid columns="2" cellpadding="5">
-            <p:graphicImage id="new" name="‪C:\Users\MatiasRomario\Desktop\new.png" />
+            <p:graphicImage id="new" name="../images/new.png" />
             <h:outputText
                 value="O sistema consiste em fornecer ao cliente um entendimento facil, desde o uso do IHC até 
                 a protica como de usabilidade, gostariamos que todos que fizerem uso, por favor, forneça dados que
@@ -31,6 +31,12 @@
                           hospedada, sendo uma plataforma de infraestrutura muito conhecida."></h:outputText>
         </h:panelGrid>
     </p:fieldset>
+    <p:fieldset>
+            <p:galleria value="#{imagesView.images}" var="image" panelWidth="500" panelHeight="313" showCaptions="true">
+    <p:graphicImage name="../restrict/images/demos#{image}" alt="Image Description for #{image}" title="#{image}"/>
+</p:galleria>
+</p:fieldset>
+    
 </h:form>
     </ui:define>
 
