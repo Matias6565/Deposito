@@ -24,13 +24,17 @@ public class MbConta implements Serializable {
     private Pessoa pessoa = new Pessoa();
     private List<Pessoa> pessoas;
     
-    public MbConta() {
-    }
+   
     
-     private InterfaceDAO<Conta> contaDAO() {
+     private InterfaceDAO<Conta> contaDAO(){
         InterfaceDAO<Conta> contaDAO = new HibernateDAO<Conta>(Conta.class, FacesContextUtil.getRequestSession());
-        return contaDAO;
+        return contaDAO;  
     }
+     
+         private InterfaceDAO<Pessoa> pessoaDAO() {
+        InterfaceDAO<Pessoa> pessoaDAO = new HibernateDAO<Pessoa>(Pessoa.class, FacesContextUtil.getRequestSession());
+        return pessoaDAO;
+         }
     
       public String deleteConta() {
         contaDAO().remove(conta);
@@ -43,9 +47,17 @@ public class MbConta implements Serializable {
         conta = new Conta();
        return "/restrict/cadastrarcontas.faces";
           }
+       
+        private void insertConta(){ 
+            contaDAO().save(conta);
+            conta.setDataDeCadastro(new Date());
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage(FacesMessage.SEVERITY_INFO, "Gravação efetuada com sucesso", ""));
+        }
+    
       
       public String addConta() {
-        if (conta.getIdGastos() == null || conta.getIdGastos() == 0) {
+        if (conta.getIdGastos() == null || conta.getIdGastos() == 0 || conta.getIdGastos() == ' ' ) {
             insertConta();
         } else {
             updateConta();
@@ -59,13 +71,6 @@ public class MbConta implements Serializable {
         FacesContext.getCurrentInstance().addMessage(null,
                 new FacesMessage(FacesMessage.SEVERITY_INFO, "Atualização efetuada com sucesso", ""));
     }
-
-       private void insertConta() {       
-            contaDAO().save(conta);
-            FacesContext.getCurrentInstance().addMessage(null,
-                    new FacesMessage(FacesMessage.SEVERITY_INFO, "Gravação efetuada com sucesso", ""));
-        }
-    
     
     public Conta getConta() {
         return conta;
@@ -81,6 +86,22 @@ public class MbConta implements Serializable {
 
     public void setContas(List<Conta> contas) {
         this.contas = contas;
+    }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+
+    public List<Pessoa> getPessoas() {
+        return pessoas;
+    }
+
+    public void setPessoas(List<Pessoa> pessoas) {
+        this.pessoas = pessoas;
     }
       
 }

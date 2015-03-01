@@ -3,16 +3,13 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import org.hibernate.annotations.ForeignKey;
-import static org.hibernate.type.TypeFactory.serializable;
 
 @Entity
 @Table(name="conta")
@@ -23,13 +20,15 @@ public class Conta implements Serializable {
     @Id
     @GeneratedValue
     @Column(name="IdGastos", nullable=false)
-    private Integer idGastos;
+    private Integer IdGastos;
     
     @Column(name="Observacao", nullable=false, length = 40)
     private String observacao;
+    
     @Column(name="conta", length=8)
     private double conta;
-    @Column (name="DataDeCadastro", nullable = false)
+   
+    @Column (name="DataDeCadastro")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataDeCadastro;
 
@@ -39,8 +38,9 @@ public class Conta implements Serializable {
     private Pessoa nome;
 
     public Conta() {
+      
     }
-
+ 
     public Date getDataDeCadastro() {
         return dataDeCadastro;
     }
@@ -51,11 +51,19 @@ public class Conta implements Serializable {
     
     
     public Integer getIdGastos() {
-        return idGastos;
+        return IdGastos;
     }
 
     public void setIdGastos(Integer idGastos) {
-        this.idGastos = idGastos;
+        this.IdGastos = idGastos;
+    }
+
+    public Pessoa getNome() {
+        return nome;
+    }
+
+    public void setNome(Pessoa nome) {
+        this.nome = nome;
     }
 
     public double getConta() {
@@ -78,7 +86,7 @@ public class Conta implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 61 * hash + (this.idGastos != null ? this.idGastos.hashCode() : 0);
+        hash = 61 * hash + (this.IdGastos != null ? this.IdGastos.hashCode() : 0);
         return hash;
     }
 
@@ -91,7 +99,7 @@ public class Conta implements Serializable {
             return false;
         }
         final Conta other = (Conta) obj;
-        if (this.idGastos != other.idGastos && (this.idGastos == null || !this.idGastos.equals(other.idGastos))) {
+        if (this.IdGastos != other.IdGastos && (this.IdGastos == null || !this.IdGastos.equals(other.IdGastos))) {
             return false;
         }
         return true;
