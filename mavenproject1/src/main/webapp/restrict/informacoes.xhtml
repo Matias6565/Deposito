@@ -14,7 +14,7 @@
  
     <p:fieldset legend="Info.Basica" style="margin-bottom:20px">
         <h:panelGrid columns="2" cellpadding="5">
-            <p:graphicImage id="new" name="resources/restrict/images/new.png" />
+            <p:graphicImage library="images" url="../images/new.png" name="‪../images/new.png" alt="new.png"/>
             <h:outputText
                 value="O sistema consiste em fornecer ao cliente um entendimento facil, desde o uso do IHC até 
                 a protica como de usabilidade, gostariamos que todos que fizerem uso, por favor, forneça dados que
@@ -33,7 +33,7 @@
     </p:fieldset>
     <p:fieldset>
             <p:galleria value="#{imagesView.images}" var="image" panelWidth="500" panelHeight="313" showCaptions="true">
-    <p:graphicImage name="../restrict/images/demos#{image}" alt="Image Description for #{image}" title="#{image}"/>
+   <p:graphicImage name="resources/restrict/images/demo/#{image}" alt="Image Description for #{image}" title="#{image}"/>
 </p:galleria>
 </p:fieldset>
     
