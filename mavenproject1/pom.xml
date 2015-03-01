@@ -197,13 +197,13 @@
         
         <dependency>  
             <groupId>org.primefaces.themes</groupId>  
-            <artifactId>le-frog</artifactId>  
+            <artifactId>vader</artifactId>  
             <version>${themes.version}</version> 
         </dependency> 
         
         <dependency>  
             <groupId>org.primefaces.themes</groupId>  
-            <artifactId>sam</artifactId>  
+            <artifactId>eggplant</artifactId>  
             <version>${themes.version}</version> 
         </dependency> 
         
