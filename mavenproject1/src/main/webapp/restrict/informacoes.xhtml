@@ -32,9 +32,13 @@
         </h:panelGrid>
     </p:fieldset>
     <p:fieldset>
-        <p:galleria value="#{imagesView.images}" var="image" panelWidth="500" panelHeight="313" showCaptions="true">
-   <p:graphicImage name="restrict/images#{image}" alt="Image Description for #{image}" title="#{image}"/>
-</p:galleria>
+        
+        <p:galleria value="#{imagesView.images}" var="image" panelWidth="300"
+         panelHeight="200" showCaptions="true">
+            <p:graphicImage name="resources/imagens/#{image}"
+         alt="Image Description for #{image}" title="#{image}" />
+       </p:galleria>
+        
 </p:fieldset>
     
 </h:form>
