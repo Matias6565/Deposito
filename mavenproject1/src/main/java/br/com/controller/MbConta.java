@@ -57,7 +57,7 @@ public class MbConta implements Serializable {
     
       
       public String addConta() {
-        if (conta.getIdGastos() == null || conta.getIdGastos() == 0 || conta.getIdGastos() == ' ' ) {
+        if (conta.getIdGastos() == null || conta.getIdGastos() == 0 ) {
             insertConta();
         } else {
             updateConta();

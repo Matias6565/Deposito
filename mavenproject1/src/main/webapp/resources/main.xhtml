@@ -45,7 +45,7 @@
                         <p:menuitem value="Pessoas" url="/restrict/consultarpessoas.faces"/>  
                     </p:submenu> 
                      <p:submenu label="Recursos">  
-                        <p:menuitem value="Contas e Gastos" url="/restrict/cadastrarcontas.faces"/>  
+                         <p:menuitem value="Contas e Gastos" action="#{mbConta.limpConta}" ajax="false"/>  
                     </p:submenu>
                 </p:menubar> 
             </h:form>           
