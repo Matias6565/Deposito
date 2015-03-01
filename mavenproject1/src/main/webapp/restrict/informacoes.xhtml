@@ -12,9 +12,9 @@
        <h:form>
     <p:growl id="msgs" showDetail="true" />
  
-    <p:fieldset legend="Info.Basica" style="margin-bottom:10px">
+    <p:fieldset legend="Info.Basica" style="margin-bottom:20px">
         <h:panelGrid columns="2" cellpadding="5">
-            <h:graphicImage library="restrict/images" name="eu.jpg" width="100%" height="100%" />  
+            <h:graphicImage library="restrict/images" name="dw.png" width="100%" height="100%" />  
             <h:outputText
                 value="O sistema consiste em fornecer ao cliente um entendimento facil, desde o uso do IHC até 
                 a protica como de usabilidade, gostariamos que todos que fizerem uso, por favor, forneça dados que
@@ -25,7 +25,7 @@
     <p:fieldset legend="Info. Relevante" toggleable="true" toggleSpeed="500">
         <p:ajax event="toggle" listener="#{fieldsetView.handleToggle}" update="msgs" />
         <h:panelGrid columns="2" cellpadding="5">
-            <p:graphicImage name="../images/eu.jpg" />
+            <p:graphicImage name="restrict/images/eu.jpg" />
             <h:outputText value="Sistema desenvolvido por Matias Romário com intuito de concluir o seu tcc, esse sistema é/foi utilizado
                           para verificar aspectos relevantes quanto a segurança, desde dados como do provenor da nuvem ao qual a mesma foi
                           hospedada, sendo uma plataforma de infraestrutura muito conhecida."></h:outputText>
@@ -33,7 +33,7 @@
     </p:fieldset>
     <p:fieldset>
             <p:galleria value="#{imagesView.images}" var="image" panelWidth="500" panelHeight="313" showCaptions="true">
-   <p:graphicImage name="../images/demos/#{image}" alt="Image Description for #{image}" title="#{image}"/>
+   <p:graphicImage name="restrict/images/demos/#{image}" alt="Image Description for #{image}" title="#{image}"/>
 </p:galleria>
 </p:fieldset>
     
